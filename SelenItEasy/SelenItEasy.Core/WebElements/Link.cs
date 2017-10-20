@@ -10,18 +10,16 @@ namespace SelenItEasy.Core.WebElements
 {
     public class Link : WebElement
     {
-        private readonly IWebDriver _driver;
-        private readonly By _by;
+        private IWebElement _webElement;
 
         public Link(IWebDriver driver, By by) : base(driver, by)
         {
-            _driver = driver;
-            _by = by;
+            _webElement = driver.FindElement(by);
         }
 
         public Link Click()
         {
-            _driver.FindElement(_by).Click();
+            _webElement.Click();
             return this;
         }
     }
