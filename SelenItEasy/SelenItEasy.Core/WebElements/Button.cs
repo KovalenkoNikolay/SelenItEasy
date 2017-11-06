@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ninject;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Remote;
@@ -16,10 +17,14 @@ namespace SelenItEasy.Core.WebElements
 
         public Button(IWebDriver driver, By by) : base(driver, by)
         {
-            _driver = driver;
+            var kernel = new StandardKernel(new NInjectBindings());
+            _driver = kernel.Get<IWebDriver>();
             _by = by;
         }
 
-
+        public void Click()
+        {
+            _driver.FindElement(_by).Click();
+        }
     }
 }

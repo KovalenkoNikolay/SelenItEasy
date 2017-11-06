@@ -19,10 +19,13 @@ namespace SelenItEasy.Tests
         {
             IWebDriver driver = new ChromeDriver();
 
+            new Browser(driver);
+
             driver.Navigate().GoToUrl("http://automated-testing.info/t/razbor-i-kritika-primera-ispolzovaniya-selenium-webdriver-nunit-c/2479");
 
             var button = new Link(driver, By.XPath("//button[contains(@class,'sign-up-button')]"));
             button.Click();
+            
         }
     }
 }

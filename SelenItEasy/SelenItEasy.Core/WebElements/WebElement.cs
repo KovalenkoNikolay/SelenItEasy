@@ -10,11 +10,17 @@ namespace SelenItEasy.Core.WebElements
 {
     public abstract class WebElement
     {
-        private IWebDriver _driver;
+        private readonly IWebElement _webElement;
 
         public WebElement(IWebDriver driver, By by)
         {
-            _driver = driver;
+            _webElement = driver.FindElement(by);
+        }
+
+        public WebElement Click()
+        {
+            _webElement.Click();
+            return this;
         }
     }
 }
