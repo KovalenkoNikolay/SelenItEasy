@@ -17,8 +17,8 @@ namespace SelenItEasy.Core.WebElements
 
         public Button(IWebDriver driver, By by) : base(driver, by)
         {
-            var kernel = new StandardKernel(new NInjectBindings());
-            _driver = kernel.Get<IWebDriver>();
+            //var kernel = new StandardKernel(new NInjectBindings());
+            //_driver = kernel.Get<IWebDriver>();
             _by = by;
         }
 

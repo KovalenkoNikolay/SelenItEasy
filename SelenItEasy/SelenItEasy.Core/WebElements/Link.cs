@@ -16,8 +16,7 @@ namespace SelenItEasy.Core.WebElements
 
         public Link(IWebDriver driver, By by) : base(driver, by)
         {
-            
-            _driver = Browser._kernal.Get<IWebDriver>();
+            _driver = DriverStorage.GetDriver();
             _by = by;
         }
 

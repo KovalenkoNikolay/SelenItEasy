@@ -11,11 +11,16 @@ namespace SelenItEasy.Core
 {
     public class NInjectBindings : NinjectModule
     {
-        public static IWebDriver driver;
+        public IWebDriver Driver { get; set; }
+
+        public NInjectBindings(IWebDriver driver)
+        {
+            Driver = driver;
+        }
 
         public override void Load()
         {
-            Bind<IWebDriver>().ToConstant(driver).InThreadScope();
+            Bind<IWebDriver>().ToConstant(Driver).InThreadScope();
         }
     }
 }

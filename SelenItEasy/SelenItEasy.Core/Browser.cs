@@ -10,13 +10,9 @@ namespace SelenItEasy.Core
 {
     public class Browser
     {
-        public static StandardKernel _kernal;
-
         public Browser(IWebDriver driver)
         {
-            NInjectBindings.driver = driver;
-
-            _kernal = new StandardKernel(new NInjectBindings());
+            DriverStorage.StoreDriver(driver);
         }
     }
 }
