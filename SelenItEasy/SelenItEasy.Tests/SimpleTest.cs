@@ -29,5 +29,47 @@ namespace SelenItEasy.Tests
             button.Click();
             
         }
+
+        [Test]
+        public void Test1()
+        {
+            IWebDriver driver1 = new ChromeDriver();
+
+            new Browser(driver1);
+
+            driver1.Navigate().GoToUrl("http://automated-testing.info/t/razbor-i-kritika-primera-ispolzovaniya-selenium-webdriver-nunit-c/2479");
+
+            var button = new Link(driver1, By.XPath("//button[contains(@class,'sign-up-button')]"));
+            button.Click();
+
+        }
+
+        [Test]
+        public void Test2()
+        {
+            IWebDriver driver1 = new ChromeDriver();
+
+            new Browser(driver1);
+
+            driver1.Navigate().GoToUrl("http://automated-testing.info/t/razbor-i-kritika-primera-ispolzovaniya-selenium-webdriver-nunit-c/2479");
+
+            var button = new Link(driver1, By.XPath("//button[contains(@class,'sign-up-button')]"));
+            button.Click();
+
+        }
+
+        [Test]
+        public void Test3()
+        {
+            IWebDriver driver1 = new ChromeDriver();
+
+            new Browser(driver1);
+
+            driver1.Navigate().GoToUrl("http://automated-testing.info/t/razbor-i-kritika-primera-ispolzovaniya-selenium-webdriver-nunit-c/2479");
+
+            var button = new Link(driver1, By.XPath("//button[contains(@class,'sign-up-button')]"));
+            button.Click();
+
+        }
     }
 }

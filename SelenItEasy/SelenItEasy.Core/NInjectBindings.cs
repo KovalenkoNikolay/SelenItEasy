@@ -20,7 +20,7 @@ namespace SelenItEasy.Core
 
         public override void Load()
         {
-            Bind<IWebDriver>().ToConstant(Driver).InThreadScope();
+            Bind<IWebDriver>().ToSelf().InThreadScope();
         }
     }
 }

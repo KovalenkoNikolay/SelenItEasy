@@ -12,7 +12,8 @@ namespace SelenItEasy.Core
     {
         public Browser(IWebDriver driver)
         {
-            DriverStorage.StoreDriver(driver);
+            Kernel.Instance.Get<Storage>().driver = driver;
+            var _driver = Kernel.Instance.Get<Storage>().driver;
         }
     }
 }
