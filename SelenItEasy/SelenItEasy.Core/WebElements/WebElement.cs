@@ -12,7 +12,12 @@ namespace SelenItEasy.Core.WebElements
     {
         private readonly IWebElement _webElement;
 
-        public WebElement(IWebDriver driver, By by)
+        public WebElement(By by)
+        {
+            _webElement = DriverManager.GetDriver().FindElement(by);
+        }
+
+        public WebElement(By by, IWebDriver driver)
         {
             _webElement = driver.FindElement(by);
         }

@@ -13,7 +13,7 @@ namespace SelenItEasy.Core.WebElements
         private readonly IWebDriver _driver;
         private readonly By _by;
 
-        public CheckBox(IWebDriver driver, By by) : base(driver, by)
+        public CheckBox(IWebDriver driver, By by) : base(by)
         {
             _driver = driver;
             _by = by;

@@ -7,9 +7,9 @@ using Ninject;
 
 namespace SelenItEasy.Core
 {
-    public class Kernel
+    internal class Kernel
     {
-        private static object _lock = new object();
+        private static readonly object Lock = new object();
         private static IKernel _kernel;
 
         private Kernel()
@@ -21,10 +21,10 @@ namespace SelenItEasy.Core
             {
                 if (_kernel == null)
                 {
-                    lock (_lock)
+                    lock (Lock)
                     {
                         if (_kernel == null)
-                            _kernel = new StandardKernel(new Binding());
+                            _kernel = new StandardKernel(new NinjectBinding());
                     }
                 }
 

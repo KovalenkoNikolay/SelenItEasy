@@ -15,7 +15,7 @@ namespace SelenItEasy.Core.WebElements
         private readonly IWebDriver _driver;
         private readonly By _by;
 
-        public Button(IWebDriver driver, By by) : base(driver, by)
+        public Button(IWebDriver driver, By by) : base(by)
         {
             //var kernel = new StandardKernel(new NInjectBindings());
             //_driver = kernel.Get<IWebDriver>();

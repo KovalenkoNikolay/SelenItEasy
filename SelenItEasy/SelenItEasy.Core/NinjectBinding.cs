@@ -7,11 +7,11 @@ using Ninject.Modules;
 
 namespace SelenItEasy.Core
 {
-    public class Binding : NinjectModule
+    internal class NinjectBinding : NinjectModule
     {
         public override void Load()
         {
-            Bind<Storage>().ToSelf().InThreadScope();
+            Bind<DriverStorage>().ToSelf().InThreadScope();
         }
     }
 }

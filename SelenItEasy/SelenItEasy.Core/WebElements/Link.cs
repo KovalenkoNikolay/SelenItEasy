@@ -14,15 +14,16 @@ namespace SelenItEasy.Core.WebElements
         private readonly IWebDriver _driver;
         private readonly By _by;
 
-        public Link(IWebDriver driver, By by) : base(driver, by)
+        public Link(By by) : base(by)
         {
-            _driver = Kernel.Instance.Get<Storage>().driver;
+            _driver = DriverManager.GetDriver();
             _by = by;
         }
 
-        public void Click()
+        public Link(By by, IWebDriver driver) : base(by, driver)
         {
-            _driver.FindElement(_by).Click();
+            _driver = driver;
+            _by = by;
         }
     }
 }
