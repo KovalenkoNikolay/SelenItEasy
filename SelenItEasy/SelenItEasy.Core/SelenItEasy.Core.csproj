@@ -49,6 +49,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common.cs" />
     <Compile Include="DriverManager.cs" />
     <Compile Include="NinjectBinding.cs" />
     <Compile Include="Browser.cs" />
