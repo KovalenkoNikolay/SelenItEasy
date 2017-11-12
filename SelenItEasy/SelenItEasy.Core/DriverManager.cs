@@ -12,12 +12,16 @@ namespace SelenItEasy.Core
     {
         public static IWebDriver GetDriver()
         {
-            return Kernel.Instance.Get<DriverStorage>().Driver;
+            return DriverStorage.StaticDriver;
+
+            //return Kernel.Instance.Get<DriverStorage>().Driver;
         }
 
         public static void SetDriver(IWebDriver driver)
         {
-            Kernel.Instance.Get<DriverStorage>().Driver = driver;
+            DriverStorage.StaticDriver = driver;
+
+            //Kernel.Instance.Get<DriverStorage>().Driver = driver;
         }
     }
 }

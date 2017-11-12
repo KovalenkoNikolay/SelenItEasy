@@ -12,6 +12,9 @@ namespace SelenItEasy.Core
 {
     internal class DriverStorage
     {
+        [ThreadStatic]
+        public static IWebDriver StaticDriver;
+
         public IWebDriver Driver { get; set; }
     }
 }
