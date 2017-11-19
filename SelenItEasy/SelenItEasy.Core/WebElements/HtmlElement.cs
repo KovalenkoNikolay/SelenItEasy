@@ -13,7 +13,13 @@ namespace SelenItEasy.Core.WebElements
         private readonly IWebDriver _driver;
         private readonly By _by;
 
-        public HtmlElement(IWebDriver driver, By by) : base(by)
+        public HtmlElement(By by) : base(by)
+        {
+            _driver = DriverManager.GetDriver();
+            _by = by;
+        }
+
+        public HtmlElement(By by, IWebDriver driver) : base(by, driver)
         {
             _driver = driver;
             _by = by;

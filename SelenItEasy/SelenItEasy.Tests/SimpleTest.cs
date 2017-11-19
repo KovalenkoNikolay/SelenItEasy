@@ -32,7 +32,7 @@ namespace SelenItEasy.Tests
         {
             CurrentBrowser().Open("http://automated-testing.info/t/razbor-i-kritika-primera-ispolzovaniya-selenium-webdriver-nunit-c/2479");
 
-            Link(By.XPath("//button[contains(@class,'sign-up-button')]")).Click();
+            var href = LinkCollection(By.XPath("//a[@id]"));
         }
 
         [Test]

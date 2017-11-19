@@ -10,7 +10,12 @@ namespace SelenItEasy.Core.WebElements
 {
     public abstract class WebElement
     {
-        private readonly IWebElement _webElement;
+        protected readonly IWebElement _webElement;
+
+        public WebElement(IWebElement seleniumWebElement)
+        {
+            _webElement = seleniumWebElement;
+        }
 
         public WebElement(By by)
         {
