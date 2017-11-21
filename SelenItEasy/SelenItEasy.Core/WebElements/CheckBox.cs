@@ -10,13 +10,12 @@ namespace SelenItEasy.Core.WebElements
 {
     public class CheckBox : WebElement
     {
-        private readonly IWebDriver _driver;
-        private readonly By _by;
+        public bool Selected => base._webElement.Selected;
 
-        public CheckBox(IWebDriver driver, By by) : base(by)
-        {
-            _driver = driver;
-            _by = by;
-        }
+        public CheckBox(IWebElement seleniumWebElement) : base(seleniumWebElement) { }
+
+        public CheckBox(By by) : base(by) { }
+
+        public CheckBox(By by, IWebDriver driver) : base(by, driver) { }
     }
 }

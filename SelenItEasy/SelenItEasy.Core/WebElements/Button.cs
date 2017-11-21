@@ -12,19 +12,10 @@ namespace SelenItEasy.Core.WebElements
 {
     public class Button : WebElement
     {
-        private readonly IWebDriver _driver;
-        private readonly By _by;
+        public Button(IWebElement seleniumWebElement) : base(seleniumWebElement) { }
 
-        public Button(IWebDriver driver, By by) : base(by)
-        {
-            //var kernel = new StandardKernel(new NInjectBindings());
-            //_driver = kernel.Get<IWebDriver>();
-            _by = by;
-        }
+        public Button(By by) : base(by) { }
 
-        public void Click()
-        {
-            _driver.FindElement(_by).Click();
-        }
+        public Button(By by, IWebDriver driver) : base(by, driver) { }
     }
 }

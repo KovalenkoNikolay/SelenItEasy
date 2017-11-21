@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,12 @@ namespace SelenItEasy.Core.WebElements
 {
     public abstract class WebElement
     {
+        public string TagName => _webElement.TagName;
+        public bool IsDisplayed => _webElement.Displayed;
+        public bool IsEnabled => _webElement.Enabled;
+        public Point Location => _webElement.Location;
+        public Size Size => _webElement.Size;
+
         protected readonly IWebElement _webElement;
 
         public WebElement(IWebElement seleniumWebElement)
@@ -31,6 +38,21 @@ namespace SelenItEasy.Core.WebElements
         {
             _webElement.Click();
             return this;
+        }
+
+        public string GetAttribute(string attributeName)
+        {
+            return _webElement.GetAttribute(attributeName);
+        }
+
+        public string GetProperty(string propertyName)
+        {
+            return _webElement.GetProperty(propertyName);
+        }
+
+        public string GetCssValue(string propertyName)
+        {
+            return _webElement.GetCssValue(propertyName);
         }
     }
 }

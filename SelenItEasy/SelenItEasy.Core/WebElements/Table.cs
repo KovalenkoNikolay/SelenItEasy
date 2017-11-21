@@ -10,13 +10,10 @@ namespace SelenItEasy.Core.WebElements
 {
     public class Table : WebElement
     {
-        private readonly IWebDriver _driver;
-        private readonly By _by;
+        public Table(IWebElement seleniumWebElement) : base(seleniumWebElement) { }
 
-        public Table(IWebDriver driver, By by) : base(by)
-        {
-            _driver = driver;
-            _by = by;
-        }
+        public Table(By by) : base(by) { }
+
+        public Table(By by, IWebDriver driver) : base(by, driver) { }
     }
 }

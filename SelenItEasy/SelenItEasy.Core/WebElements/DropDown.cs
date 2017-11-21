@@ -10,13 +10,10 @@ namespace SelenItEasy.Core.WebElements
 {
     public class DropDown : WebElement
     {
-        private readonly IWebDriver _driver;
-        private readonly By _by;
+        public DropDown(IWebElement seleniumWebElement) : base(seleniumWebElement) { }
 
-        public DropDown(IWebDriver driver, By by) : base(by)
-        {
-            _driver = driver;
-            _by = by;
-        }
+        public DropDown(By by) : base(by) { }
+
+        public DropDown(By by, IWebDriver driver) : base(by, driver) { }
     }
 }

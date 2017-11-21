@@ -10,19 +10,10 @@ namespace SelenItEasy.Core.WebElements
 {
     public class HtmlElement : WebElement
     {
-        private readonly IWebDriver _driver;
-        private readonly By _by;
+        public HtmlElement(IWebElement seleniumWebElement) : base(seleniumWebElement) { }
 
-        public HtmlElement(By by) : base(by)
-        {
-            _driver = DriverManager.GetDriver();
-            _by = by;
-        }
+        public HtmlElement(By by) : base(by) { }
 
-        public HtmlElement(By by, IWebDriver driver) : base(by, driver)
-        {
-            _driver = driver;
-            _by = by;
-        }
+        public HtmlElement(By by, IWebDriver driver) : base(by, driver) { }
     }
 }

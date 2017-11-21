@@ -10,13 +10,10 @@ namespace SelenItEasy.Core.WebElements
 {
     public class TextBox : WebElement
     {
-        private readonly IWebDriver _driver;
-        private readonly By _by;
+        public TextBox(IWebElement seleniumWebElement) : base(seleniumWebElement) { }
 
-        public TextBox(IWebDriver driver, By by) : base(by)
-        {
-            _driver = driver;
-            _by = by;
-        }
+        public TextBox(By by) : base(by) { }
+
+        public TextBox(By by, IWebDriver driver) : base(by, driver) { }
     }
 }

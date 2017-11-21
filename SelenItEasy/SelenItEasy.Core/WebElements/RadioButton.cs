@@ -10,13 +10,10 @@ namespace SelenItEasy.Core.WebElements
 {
     public class RadioButton : WebElement
     {
-        private readonly IWebDriver _driver;
-        private readonly By _by;
+        public RadioButton(IWebElement seleniumWebElement) : base(seleniumWebElement) { }
 
-        public RadioButton(IWebDriver driver, By by) : base(by)
-        {
-            _driver = driver;
-            _by = by;
-        }
+        public RadioButton(By by) : base(by) { }
+
+        public RadioButton(By by, IWebDriver driver) : base(by, driver) { }
     }
 }
