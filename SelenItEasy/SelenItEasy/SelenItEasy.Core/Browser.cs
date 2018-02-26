@@ -25,6 +25,7 @@ namespace SelenItEasy.Core
             return this;
         }
         
+        /// Hello
         /// <summary>
         /// Close browser with all open tabs
         /// </summary>
