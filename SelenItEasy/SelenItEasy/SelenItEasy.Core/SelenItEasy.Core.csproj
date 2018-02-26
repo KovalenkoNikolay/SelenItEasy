@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>SelenItEasy it's a framework based on WebDriver to make your test simple
+Support netstandart2.0</Description>
+    <AssemblyVersion>0.0.0.3</AssemblyVersion>
+    <FileVersion>0.0.0.3</FileVersion>
+    <Version>0.0.0.3</Version>
+    <Authors>SelenItEasy</Authors>
+    <Company>SelenItEasy</Company>
+    <Product>SelenItEasy</Product>
+    <Copyright>SelenItEasy</Copyright>
+    <NeutralLanguage />
+    <PackageReleaseNotes>- support netstandart2.0</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ninject" Version="3.3.4" />
+    <PackageReference Include="NuGetPowerTools" Version="0.29.0" />
+    <PackageReference Include="Selenium.Chrome.WebDriver" Version="2.33.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="3.7.0" />
+  </ItemGroup>
+
+</Project>
