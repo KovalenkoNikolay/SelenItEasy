@@ -17,10 +17,9 @@ Support netstandart2.0</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ninject" Version="3.3.4" />
     <PackageReference Include="NuGetPowerTools" Version="0.29.0" />
-    <PackageReference Include="Selenium.Chrome.WebDriver" Version="2.33.0" />
-    <PackageReference Include="Selenium.WebDriver" Version="3.7.0" />
+    <PackageReference Include="Selenium.Chrome.WebDriver" Version="2.35.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="3.9.1" />
   </ItemGroup>
 
 </Project>
