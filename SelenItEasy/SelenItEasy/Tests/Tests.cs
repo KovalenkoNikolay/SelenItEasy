@@ -10,9 +10,9 @@ namespace Tests
         [Fact]
         public void CheckBox()
         {
-            //StartChrome();
+            StartChrome();
 
-            //StartChrome();
+            StartChrome();
 
             Open(@"G:\Programming\GitHub\SelenItEasy\SelenItEasy\SelenItEasy\SelenItEasy\Tests\Site\Index.html");
 
