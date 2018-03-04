@@ -5,15 +5,21 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>SelenItEasy it's a framework based on WebDriver to make your test simple
 Support netstandart2.0</Description>
-    <AssemblyVersion>0.0.0.3</AssemblyVersion>
-    <FileVersion>0.0.0.3</FileVersion>
-    <Version>0.0.0.3</Version>
+    <AssemblyVersion>0.0.0.6</AssemblyVersion>
+    <FileVersion>0.0.0.6</FileVersion>
+    <Version>0.0.0.6</Version>
     <Authors>SelenItEasy</Authors>
     <Company>SelenItEasy</Company>
     <Product>SelenItEasy</Product>
     <Copyright>SelenItEasy</Copyright>
     <NeutralLanguage />
-    <PackageReleaseNotes>- support netstandart2.0</PackageReleaseNotes>
+    <PackageReleaseNotes>- support netstandart 2.0</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
   <ItemGroup>

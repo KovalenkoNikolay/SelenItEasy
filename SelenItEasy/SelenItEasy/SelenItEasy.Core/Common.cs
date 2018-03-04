@@ -1,41 +1,40 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using SelenItEasy.Core.WebElements;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using SelenItEasy.Core.WebElements;
 
 namespace SelenItEasy.Core
 {
     public static class Main
     {
         [ThreadStatic]
-        private static Browser _browser;
+        private static EasyDriver _easyDriver;
 
-        public static Browser StartChrome()
+        public static EasyDriver Open(string url)
         {
-            _browser = new Browser(new ChromeDriver(Directory.GetCurrentDirectory()));
-            return _browser;
+            DriverManager.GetDriver().Navigate().GoToUrl(url);
+            return _easyDriver;
         }
 
-        public static Browser StartBrowser(IWebDriver driver)
+        public static EasyDriver StartChrome()
         {
-            _browser = new Browser(driver);
-            return _browser;
+            _easyDriver = DriverManager.GetNewEasyDriver(Browser.Chrome);
+            return _easyDriver;
         }
 
-        public static Browser CurrentBrowser()
+        public static EasyDriver StartBrowser(IWebDriver driver)
         {
-            return _browser;
+            _easyDriver = new EasyDriver(driver);
+            return _easyDriver;
         }
 
-        #region Elements
-
-        #region Link
+        public static EasyDriver CurrentBrowser()
+        {
+            return _easyDriver;
+        }
 
         public static Link Link(By by)
         {
@@ -47,26 +46,22 @@ namespace SelenItEasy.Core
             return new Link(by, driver);
         }
 
-        public static List<Link> LinkCollection(By by)
+        public static List<Link> Links(By by)
         {
             return GetCollection<Link>(by, DriverManager.GetDriver());
         }
 
-        public static List<Link> LinkCollection(By by, IWebDriver driver)
+        public static List<Link> Links(By by, IWebDriver driver)
         {
             return GetCollection<Link>(by, driver);
         }
-
-        #endregion
 
         public static HtmlElement HtmlElement(By by)
         {
             return new HtmlElement(by);
         }
 
-        #endregion
-
-        private static List<T> GetCollection<T>(By by, IWebDriver driver) where T : WebElement
+        private static List<T> GetCollection<T>(By by, IWebDriver driver) where T : EasyElement<T>
         {
             var linkCollection = new List<T>();
 
@@ -78,6 +73,11 @@ namespace SelenItEasy.Core
             }
 
             return linkCollection;
+        }
+
+        public static CheckBox CheckBox(By by)
+        {
+            return new CheckBox(by);
         }
     }
 }

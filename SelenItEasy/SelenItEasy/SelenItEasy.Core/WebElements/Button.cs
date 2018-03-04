@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Remote;
+﻿using OpenQA.Selenium;
 
 namespace SelenItEasy.Core.WebElements
 {
-    public class Button : WebElement
+    public class Button : EasyElement<Button>
     {
         public Button(IWebElement seleniumWebElement) : base(seleniumWebElement) { }
-
+        
         public Button(By by) : base(by) { }
-
+        
         public Button(By by, IWebDriver driver) : base(by, driver) { }
     }
 }

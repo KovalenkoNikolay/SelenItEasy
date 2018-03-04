@@ -1,24 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 
 namespace SelenItEasy.Core
 {
-    internal class DriverManager
+    // TODO: change to internal
+    public class DriverManager
     {
         public static IWebDriver GetDriver()
         {
-            if (DriverStorage.StaticDriver == null) throw new Exception("Driver is not set");
+            if (DriverStorage.Driver == null)
+            {
+                throw new Exception("Browser is not started");
+            }
 
-            return DriverStorage.StaticDriver;
+            return DriverStorage.Driver;
         }
 
         public static void SetDriver(IWebDriver driver)
         {
-            DriverStorage.StaticDriver = driver;
+            DriverStorage.Driver = driver;
+        }
+
+        public static EasyDriver GetNewEasyDriver(Browser browser)
+        {
+            string pathToChromeDriver = @"G:\";
+            //string pathToChromeDriver = Directory.GetCurrentDirectory();
+
+            if (browser == Browser.Chrome)
+                return new EasyDriver(new ChromeDriver(pathToChromeDriver));
+
+            throw new Exception();
         }
     }
 }

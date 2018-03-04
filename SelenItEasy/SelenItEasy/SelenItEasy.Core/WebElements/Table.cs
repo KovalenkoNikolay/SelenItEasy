@@ -8,7 +8,7 @@ using OpenQA.Selenium.Remote;
 
 namespace SelenItEasy.Core.WebElements
 {
-    public class Table : WebElement
+    public class Table : EasyElement<Table>
     {
         public Table(IWebElement seleniumWebElement) : base(seleniumWebElement) { }
 

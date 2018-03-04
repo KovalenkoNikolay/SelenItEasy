@@ -6,10 +6,16 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
-    <PackageReference Include="SelenItEasy.Core" Version="0.0.0.3" />
+    <PackageReference Include="Selenium.Chrome.WebDriver" Version="2.35.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="3.10.0" />
     <PackageReference Include="xunit" Version="2.3.1" />
     <PackageReference Include="xunit.runner.console" Version="2.3.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="SelenItEasy.Core">
+      <HintPath>..\SelenItEasy.Core\bin\Debug\netstandard2.0\SelenItEasy.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

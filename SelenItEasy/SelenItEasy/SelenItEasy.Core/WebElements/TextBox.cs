@@ -8,7 +8,7 @@ using OpenQA.Selenium.Remote;
 
 namespace SelenItEasy.Core.WebElements
 {
-    public class TextBox : WebElement
+    public class TextBox : EasyElement<TextBox>
     {
         public TextBox(IWebElement seleniumWebElement) : base(seleniumWebElement) { }
 
