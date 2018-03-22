@@ -15,13 +15,13 @@ namespace SelenItEasy.Core
 
         public static EasyDriver Open(string url)
         {
-            DriverManager.GetDriver().Navigate().GoToUrl(url);
+            WebDriverManager.GetDriver().Navigate().GoToUrl(url);
             return _easyDriver;
         }
 
         public static EasyDriver StartChrome()
         {
-            _easyDriver = DriverManager.GetNewEasyDriver(Browser.Chrome);
+            _easyDriver = new EasyDriver(Browser.Chrome);
             return _easyDriver;
         }
 
@@ -48,7 +48,7 @@ namespace SelenItEasy.Core
 
         public static List<Link> Links(By by)
         {
-            return GetCollection<Link>(by, DriverManager.GetDriver());
+            return GetCollection<Link>(by, WebDriverManager.GetDriver());
         }
 
         public static List<Link> Links(By by, IWebDriver driver)

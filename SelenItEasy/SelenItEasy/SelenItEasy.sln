@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SelenItEasy.Core", "SelenItEasy.Core\SelenItEasy.Core.csproj", "{87C79387-7625-4684-92FB-1BA3CF64A7F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{932CD84E-4400-4AD4-8518-02E75F794AE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{932CD84E-4400-4AD4-8518-02E75F794AE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.NetFramework", "Tests.NetFramework\Tests.NetFramework.csproj", "{E0068DD0-E765-458C-A025-EAD72E9652FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{932CD84E-4400-4AD4-8518-02E75F794AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{932CD84E-4400-4AD4-8518-02E75F794AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{932CD84E-4400-4AD4-8518-02E75F794AE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0068DD0-E765-458C-A025-EAD72E9652FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0068DD0-E765-458C-A025-EAD72E9652FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0068DD0-E765-458C-A025-EAD72E9652FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0068DD0-E765-458C-A025-EAD72E9652FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

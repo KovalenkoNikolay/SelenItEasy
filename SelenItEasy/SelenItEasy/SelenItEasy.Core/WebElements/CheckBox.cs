@@ -12,10 +12,11 @@ namespace SelenItEasy.Core.WebElements
 
         public CheckBox(By by, IWebDriver driver) : base(by, driver) { }
 
-        public void SetSelected(bool selected)
+        public CheckBox SetSelected(bool selected)
         {
             if (_webElement.Selected != selected)
                 _webElement.Click();
+            return this;
         }
     }
 }

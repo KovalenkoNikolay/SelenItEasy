@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 
 namespace SelenItEasy.Core
 {
-    internal class DriverStorage
+    internal class WebDriverStorage
     {
         [ThreadStatic]
         private static IWebDriver staticDriver;

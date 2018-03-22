@@ -24,7 +24,7 @@ namespace SelenItEasy.Core.WebElements
 
         public EasyElement(By by)
         {
-            _webElement = DriverManager.GetDriver().FindElement(by);
+            _webElement = WebDriverManager.GetDriver().FindElement(by);
         }
 
         public EasyElement(By by, IWebDriver driver)

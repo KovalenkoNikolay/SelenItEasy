@@ -1,24 +1,52 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
 
 namespace SelenItEasy.Core
 {
     public class EasyDriver
     {
-        internal EasyDriver(IWebDriver driver)
+        internal EasyDriver(Browser browser)
         {
-            DriverManager.SetDriver(driver);
+            var driverService = DriverServiceManager.Start(browser);
+
+            DriverOptions options;
+
+            switch (browser)
+            {
+                case Browser.Chrome:
+                    options = new ChromeOptions();
+                    break;
+                case Browser.FireFox:
+                    options = new ChromeOptions();
+                    break;
+                default:
+                    // TODO: Exception
+                    throw new Exception();
+            }
+
+            //options.BinaryLocation = pathToChromeDriver;
+            var driver = RemoteWebDriverManager.GetNew(options);
+
+            WebDriverManager.StoreDriver(driver);
         }
 
-        public IWebDriver GetDriver()
+        internal EasyDriver(IWebDriver driver)
         {
-            return DriverManager.GetDriver();
+            WebDriverManager.StoreDriver(driver);
+        }
+
+        public IWebDriver GetWebDriver()
+        {
+            return WebDriverManager.GetDriver();
         }
 
         public EasyDriver Open(string url)
         {
-            DriverManager.GetDriver().Navigate().GoToUrl(url);
+            WebDriverManager.GetDriver().Navigate().GoToUrl(url);
             return this;
         }
 
@@ -27,7 +55,9 @@ namespace SelenItEasy.Core
         /// </summary>
         public void Quit()
         {
-            DriverManager.GetDriver().Quit();
+            WebDriverManager.GetDriver().Quit();
+
+            DriverServiceManager.Stop();
         }
 
         /// <summary>
@@ -35,59 +65,59 @@ namespace SelenItEasy.Core
         /// </summary>
         public void CloseTab()
         {
-            DriverManager.GetDriver().Close();
+            WebDriverManager.GetDriver().Close();
         }
 
         public string GetTitle()
         {
-            return DriverManager.GetDriver().Title;
+            return WebDriverManager.GetDriver().Title;
         }
 
         public string GetWindowHandle()
         {
-            return DriverManager.GetDriver().CurrentWindowHandle;
+            return WebDriverManager.GetDriver().CurrentWindowHandle;
         }
 
         public string GetPageSource()
         {
-            return DriverManager.GetDriver().PageSource;
+            return WebDriverManager.GetDriver().PageSource;
         }
 
         public string GetUrl()
         {
-            return DriverManager.GetDriver().Url;
+            return WebDriverManager.GetDriver().Url;
         }
 
         public List<string> GetWindowHandles()
         {
-            return DriverManager.GetDriver().WindowHandles.ToList();
+            return WebDriverManager.GetDriver().WindowHandles.ToList();
         }
 
         public IOptions Manage()
         {
-            return DriverManager.GetDriver().Manage();
+            return WebDriverManager.GetDriver().Manage();
         }
 
         public ITargetLocator SwitchTo()
         {
-            return DriverManager.GetDriver().SwitchTo();
+            return WebDriverManager.GetDriver().SwitchTo();
         }
 
         public EasyDriver GoBack()
         {
-            DriverManager.GetDriver().Navigate().Back();
+            WebDriverManager.GetDriver().Navigate().Back();
             return this;
         }
 
         public EasyDriver Refresh()
         {
-            DriverManager.GetDriver().Navigate().Refresh();
+            WebDriverManager.GetDriver().Navigate().Refresh();
             return this;
         }
 
         public EasyDriver GoForward()
         {
-            DriverManager.GetDriver().Navigate().Forward();
+            WebDriverManager.GetDriver().Navigate().Forward();
             return this;
         }
     }
