@@ -1,12 +1,16 @@
 ﻿using OpenQA.Selenium;
-using Xunit;
+//using Xunit;
+using NUnit.Framework;
 using static SelenItEasy.Core.Main;
 
 namespace Tests
 {
+    [TestFixture]
+    [Parallelizable(ParallelScope.All)]
     public class TestsEasy
     {
-        [Fact]
+        //[Fact]
+        [Test]
         public void CheckBoxSelected()
         {
             StartChrome();
@@ -26,7 +30,8 @@ namespace Tests
             CurrentBrowser().Quit();
         }
 
-        [Fact]
+        //[Fact]
+        [Test]
         public void CheckBoxSelected1()
         {
             StartChrome();
@@ -46,7 +51,8 @@ namespace Tests
             CurrentBrowser().Quit();
         }
 
-        [Fact]
+        [Test]
+        //[Fact]
         public void CheckBoxSelected2()
         {
             StartChrome();
@@ -66,7 +72,8 @@ namespace Tests
             CurrentBrowser().Quit();
         }
 
-        [Fact]
+        [Test]
+        //[Fact]
         public void CheckBoxSelected3()
         {
             StartChrome();
@@ -86,7 +93,8 @@ namespace Tests
             CurrentBrowser().Quit();
         }
 
-        [Fact]
+        [Test]
+        //[Fact]
         public void CheckBoxSelected4()
         {
             StartChrome();
@@ -106,7 +114,8 @@ namespace Tests
             CurrentBrowser().Quit();
         }
 
-        [Fact]
+        [Test]
+        //[Fact]
         public void CheckBoxSelected5()
         {
             StartChrome();

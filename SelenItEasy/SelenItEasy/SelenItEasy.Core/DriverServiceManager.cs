@@ -29,6 +29,7 @@ namespace SelenItEasy.Core
         public static DriverService Stop()
         {
             _driverService.Dispose();
+
             return _driverService;
         }
 
