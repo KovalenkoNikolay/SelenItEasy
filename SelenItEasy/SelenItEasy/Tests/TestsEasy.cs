@@ -13,7 +13,8 @@ namespace Tests
         [Test]
         public void CheckBoxSelected()
         {
-            StartChrome();
+            var easyDriver = StartChrome();
+            var title = easyDriver.Title;
 
             Open(@"G:\Programming\Git\SelenItEasy\SelenItEasy\Tests\Site\Index.html");
 

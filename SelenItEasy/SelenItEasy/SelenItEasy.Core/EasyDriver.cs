@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -8,6 +9,36 @@ namespace SelenItEasy.Core
 {
     public class EasyDriver
     {
+        public IWebDriver WebDriver => WebDriverManager.GetDriver();
+        public string Title => WebDriverManager.GetDriver().Title;
+        public string WindowHandle => WebDriverManager.GetDriver().CurrentWindowHandle;
+        public string PageSource => WebDriverManager.GetDriver().PageSource;
+        public string Url => WebDriverManager.GetDriver().Url;
+        public List<string> WindowHandles => WebDriverManager.GetDriver().WindowHandles.ToList();
+
+        public Point Position {
+            get
+            {
+                return WebDriverManager.GetDriver().Manage().Window.Position;
+            }
+            set
+            {
+                WebDriverManager.GetDriver().Manage().Window.Position = value;
+            }
+        }
+
+        public Size Size
+        {
+            get
+            {
+                return WebDriverManager.GetDriver().Manage().Window.Size;
+            }
+            set
+            {
+                WebDriverManager.GetDriver().Manage().Window.Size = value;
+            }
+        }
+
         internal EasyDriver(Browser browser)
         {
             var driverService = DriverServiceManager.Start(browser);
@@ -37,12 +68,7 @@ namespace SelenItEasy.Core
         {
             WebDriverManager.StoreDriver(driver);
         }
-
-        public IWebDriver GetWebDriver()
-        {
-            return WebDriverManager.GetDriver();
-        }
-
+        
         public EasyDriver Open(string url)
         {
             WebDriverManager.GetDriver().Navigate().GoToUrl(url);
@@ -66,37 +92,31 @@ namespace SelenItEasy.Core
         {
             WebDriverManager.GetDriver().Close();
         }
-
-        public string GetTitle()
+        
+        /// <summary>
+        /// The same as press F11 in browser.
+        /// </summary>
+        public void SetToFullScreen()
         {
-            return WebDriverManager.GetDriver().Title;
+            WebDriverManager.GetDriver().Manage().Window.FullScreen();
         }
 
-        public string GetWindowHandle()
+        /// <summary>
+        /// Set max size of browser. Title bar is displayed.
+        /// </summary>
+        public void SetToMaxSize()
         {
-            return WebDriverManager.GetDriver().CurrentWindowHandle;
+            WebDriverManager.GetDriver().Manage().Window.Maximize();
         }
 
-        public string GetPageSource()
+        /// <summary>
+        /// Minimizes the current window if it is not already maximized.
+        /// </summary>
+        public void SetToMinSize()
         {
-            return WebDriverManager.GetDriver().PageSource;
+            WebDriverManager.GetDriver().Manage().Window.Minimize();
         }
-
-        public string GetUrl()
-        {
-            return WebDriverManager.GetDriver().Url;
-        }
-
-        public List<string> GetWindowHandles()
-        {
-            return WebDriverManager.GetDriver().WindowHandles.ToList();
-        }
-
-        public IOptions Manage()
-        {
-            return WebDriverManager.GetDriver().Manage();
-        }
-
+        
         public ITargetLocator SwitchTo()
         {
             return WebDriverManager.GetDriver().SwitchTo();
